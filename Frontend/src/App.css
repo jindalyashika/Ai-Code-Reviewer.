@@ -1,0 +1,313 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  background-color: #0d1117;
+}
+
+/* Smaller Welcome Banner */
+.welcome-banner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.7rem;
+  text-align: center;
+  border-radius: 6px;
+  margin: 0.8rem 1.5rem 0 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-banner h2 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.welcome-banner p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+main {
+  height: calc(100% - 70px);
+  width: 100%;
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+main .left,
+main .right {
+  height: 100%;
+  flex: 1;
+  border-radius: 0.7rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+main .left {
+  background-color: #1a1f29;
+  position: relative;
+  border: 1px solid #2d3748;
+}
+
+main .right {
+  background-color: #1a1f29;
+  padding: 1rem 2rem;
+  overflow-x: auto;
+  overflow-y: auto;
+  white-space: pre;
+  color: #e6e6e6;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  border: 1px solid #2d3748;
+}
+
+.left .code,
+.code pre,
+.code pre code {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  border-radius: 0.7rem;
+  background-color: #0d1117;
+  font-family: "Fira Code", monospace;
+  padding: 1rem;
+  overflow: auto;
+  color: #f8f8f2;
+}
+
+/* Make cursor visible and bold in code editor */
+.code textarea,
+.code input,
+.code [contenteditable] {
+  caret-color: #00ff00;
+  cursor: text;
+}
+
+.code pre {
+  cursor: text;
+}
+
+/* Style for the code editor text */
+.code pre code {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #e6e6e6;
+}
+
+main .left .review {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  color: white;
+  padding: 0.6rem 1.8rem;
+  border-radius: 0.6rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 90%;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effect for review button */
+main .left .review:hover {
+  background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+/* Active effect for review button */
+main .left .review:active {
+  background: linear-gradient(135deg, #2f855a 0%, #276749 100%);
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+/* COLORFUL SYNTAX HIGHLIGHTING FOR OUTPUT */
+.right .hljs {
+  background-color: #2d3748 !important;
+  border-left: 4px solid #48bb78;
+}
+
+.right .hljs-keyword {
+  color: #ff79c6 !important; /* Pink for keywords */
+  font-weight: 600;
+}
+
+.right .hljs-built_in {
+  color: #50fa7b !important; /* Green for built-in functions */
+}
+
+.right .hljs-string {
+  color: #f1fa8c !important; /* Yellow for strings */
+}
+
+.right .hljs-number {
+  color: #bd93f9 !important; /* Purple for numbers */
+}
+
+.right .hljs-comment {
+  color: #6272a4 !important; /* Gray-blue for comments */
+  font-style: italic;
+}
+
+.right .hljs-function {
+  color: #8be9fd !important; /* Light blue for functions */
+}
+
+.right .hljs-params {
+  color: #f8f8f2 !important; /* White for parameters */
+}
+
+.right .hljs-title {
+  color: #ffb86c !important; /* Orange for titles */
+}
+
+.right .hljs-attr {
+  color: #50fa7b !important; /* Green for attributes */
+}
+
+.right .hljs-variable {
+  color: #f8f8f2 !important; /* White for variables */
+}
+
+.right .hljs-selector-class {
+  color: #ff79c6 !important; /* Pink for class selectors */
+}
+
+.right .hljs-selector-id {
+  color: #ff79c6 !important; /* Pink for ID selectors */
+}
+
+/* Markdown styling for right side */
+.right h1, .right h2, .right h3, .right h4 {
+  margin: 1rem 0;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.right h1 {
+  font-size: 1.8rem;
+  color: #ff6b6b;
+  border-bottom: 2px solid #ff6b6b;
+  padding-bottom: 0.5rem;
+}
+
+.right h2 {
+  font-size: 1.5rem;
+  color: #4fc3f7;
+}
+
+.right h3 {
+  font-size: 1.3rem;
+  color: #ffd54f;
+}
+
+.right h4 {
+  font-size: 1.1rem;
+  color: #a0aec0;
+}
+
+.right p {
+  color: #e6e6e6;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.right code:not(pre code) {
+  background-color: #2d3748;
+  color: #f8f8f2;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: "Fira Code", monospace;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.right pre {
+  background-color: #2d3748;
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 1rem 0;
+  white-space: pre;
+}
+
+.right pre code {
+  background-color: transparent;
+  padding: 0;
+  color: #f8f8f2;
+  white-space: pre;
+}
+
+/* Make sure all text is clearly visible */
+.right * {
+  color: #e6e6e6 !important;
+}
+
+/* Additional wrapping for list items */
+.right ul, .right ol {
+  white-space: normal;
+  word-wrap: break-word;
+  padding-left: 1.5rem;
+}
+
+.right li {
+  white-space: normal;
+  word-wrap: break-word;
+  margin: 0.3rem 0;
+  color: #e6e6e6;
+}
+
+.right strong {
+  color: #ffd54f;
+  font-weight: 600;
+}
+
+.right em {
+  color: #a0aec0;
+  font-style: italic;
+}
+
+/* Ensure regular text content wraps but code blocks scroll */
+.right > *:not(pre):not(code) {
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1f29;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
