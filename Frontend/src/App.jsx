@@ -20,7 +20,7 @@ function App() {
 
   async function reviewCode() {
     try {
-      const response = await axios.post('https://ai-code-reviewer-lgmy.onrender.com', { code })
+      const response = await axios.post('https://ai-code-reviewer-lgmy.onrender.com/get-review', { code })
       // Fix: Extract the review from response data
       setReview(response.data.review || response.data)
     } catch (error) {
