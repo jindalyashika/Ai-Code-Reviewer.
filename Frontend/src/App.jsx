@@ -20,8 +20,8 @@ function App() {
 
   async function reviewCode() {
     try {
+      // FIXED: Removed the extra slash after .com
       const response = await axios.post('https://ai-code-reviewer-lgmy.onrender.com/get-review', { code })
-      // Fix: Extract the review from response data
       setReview(response.data.review || response.data)
     } catch (error) {
       console.error('Error:', error.response?.data || error.message)
