@@ -4,11 +4,11 @@ const cors = require('cors')
 
 const app = express();
 
-// ✅ FIXED: Add specific CORS origins for production
+// ✅ FIXED: Add your Vercel URL to CORS
 app.use(cors({
   origin: [
-    'https://ai-code-reviewer-lgmy.onrender.com', // Your Vercel frontend
-    'http://localhost:5173'                 // Local development
+    'https://ai-code-reviewer-lgmy.onrender.com', // Your Vercel URL
+    'http://localhost:5173'                          // Local development
   ],
   credentials: true
 }))
