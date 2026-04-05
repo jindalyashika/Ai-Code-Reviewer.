@@ -1,30 +1,30 @@
-// ai.service.js:
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+const Groq = require("groq-sdk");
 
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_KEY);
-
-// Removed systemInstruction completely - using basic model only
-const model = genAI.getGenerativeModel({
-  model: "gemini-2.0-flash"
+const groq = new Groq({
+  apiKey: process.env.GROQ_API_KEY
 });
 
 async function generateContent(code) {
-  // Moved all instructions to the prompt instead
-  const prompt = `You are a Senior Code Reviewer with 7+ years experience. Provide clear, actionable feedback using this format:
-
-1. QUICK SUMMARY - Brief overview
+  const response = await groq.chat.completions.create({
+    model: "llama-3.3-70b-versatile",
+    messages: [
+      {
+        role: "system",
+        content: `You are a Senior Code Reviewer with 7+ years experience. Provide clear, actionable feedback using this format:
+1. QUICK SUMMARY
 2. DETAILED ANALYSIS - Tag issues as CRITICAL, HIGH, MEDIUM, or LOW
 3. RECOMMENDED FIX - Code snippets with comments
-4. KEY IMPROVEMENTS - Summary
+4. KEY IMPROVEMENTS
+Use Markdown and code blocks.`
+      },
+      {
+        role: "user",
+        content: `Review this code:\n${code}`
+      }
+    ]
+  });
 
-Use Markdown and code blocks. Focus on code quality, performance, security, best practices, and maintainability. Be direct and constructive.
-
-Review this code:
-${code}`;
-
-  const result = await model.generateContent(prompt);
-  console.log(result.response.text())
-  return result.response.text();
+  return response.choices[0].message.content;
 }
 
-module.exports = generateContent
+module.exports = generateContent;
