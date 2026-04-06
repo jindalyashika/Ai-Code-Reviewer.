@@ -36,7 +36,7 @@ function App() {
     if (loading) return
     setLoading(true)
     try {
-      const response = await axios.post('http://localhost:3000/ai/get-review', { code })
+      const response = await axios.post('https://ai-code-reviewer-sxyr.onrender.com/ai/get-review', { code })
       const result = response.data.review || response.data
       setReview(result)
 
