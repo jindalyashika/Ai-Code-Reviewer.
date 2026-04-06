@@ -7,8 +7,9 @@ const app = express();
 // ✅ Allow your Vercel frontend and local dev
 app.use(cors({
   origin: [
-    'https://ai-code-reviewer-navy-sigma.vercel.app', 
-    'http://localhost:5173' 
+    'https://ai-code-reviewer-foks.vercel.app',
+    'https://ai-code-reviewer-navy-sigma.vercel.app',
+    'http://localhost:5173'
   ],
   methods: ['GET', 'POST'],
   credentials: true
